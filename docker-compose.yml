@@ -1,0 +1,16 @@
+services:
+  kvartal:
+    build: .
+    container_name: kvartal
+    restart: unless-stopped
+    ports:
+      - "8765:8765"
+    environment:
+      QUARTAL_HOST: "0.0.0.0"
+      QUARTAL_PORT: "8765"
+    volumes:
+      - ./data:/app/data
+      - kvartal_secrets:/root/.kvartal
+
+volumes:
+  kvartal_secrets:

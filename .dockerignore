@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.git/
+data/active.xlsx
+data/active.lastgood.xlsx
+data/source_name.txt
+data/app_state.json
+

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f6f8">
+  <title>Квартал · Диспетчерская</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-wrap">
+        <div class="brand-mark">К</div>
+        <div class="brand-copy"><strong>Квартал</strong><span>диспетчерская</span></div>
+      </div>
+      <div class="top-meta"><span class="live-dot"></span><span id="sourceLabel">Книга: data/active.xlsx</span><span id="syncStatus" class="sync-state">подключение…</span></div>
+      <div class="top-actions">
+        <label class="btn btn-light file-btn" for="replaceFile"><span class="btn-icon">↻</span> Заменить XLSX</label>
+        <input id="replaceFile" type="file" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden>
+        <a class="btn btn-light btn-export-excel" id="downloadExcelBtn" href="/api/download" title="Скачать актуальную рабочую книгу Excel"><span class="btn-icon">↓</span> Скачать Excel</a>
+        <button class="btn btn-ghost" id="aiSettingsBtn">Помощник · Gemini</button>
+      </div>
+    </header>
+
+    <aside class="sidebar" aria-label="Навигация">
+      <button class="nav-item active" data-view="overview" title="Обзор"><span class="nav-ico">⌂</span><span>Обзор</span></button>
+      <button class="nav-item" data-view="appeals" title="Входящие"><span class="nav-ico">✉</span><span>Входящие</span></button>
+      <button class="nav-item" data-view="clarify" title="Нужно уточнить"><span class="nav-ico">!</span><span>Нужно уточнить</span><b class="nav-count warn-count" id="navClarifyCount">0</b></button>
+      <button class="nav-item" data-view="resolved" title="Решённые проблемы"><span class="nav-ico">✓</span><span>Решённые проблемы</span></button>
+      <div class="sidebar-divider"></div>
+      <button class="nav-item" data-view="spaces" title="Помещения"><span class="nav-ico">⌖</span><span>Помещения</span></button>
+      <button class="nav-item" data-view="rules" title="Правила"><span class="nav-ico">≡</span><span>Правила</span></button>
+      <div class="sidebar-bottom">
+        <div class="user-chip"><div class="avatar">Д</div><div><strong>Диспетчер</strong><span>Квартал Менеджмент</span></div><span class="user-menu">···</span></div>
+        <div class="sidebar-footnote">Вымышленные данные кейса · локальный пилот</div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <div class="content-wrap" id="view"></div>
+    </main>
+  </div>
+
+  <div id="overlayRoot"></div>
+  <div id="toastRoot" class="toast-root"></div>
+  <script src="demo-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
